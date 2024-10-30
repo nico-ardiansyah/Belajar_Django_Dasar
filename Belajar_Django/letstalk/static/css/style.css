@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: sans-serif, arial, helvetica;
+}
+
+/* awal continer */
+.container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content:center ;
+    background-color: black ;
+}
+/* akhir continer */
+
+
+
+
+/* awal sidebar */
+.sidebar {
+    background-color: black;
+    z-index: 100;
+    border-right: 1px solid rgba(134, 131, 131,.5);
+    padding: 2% 0;
+    height: 100%;
+    top: 0;
+    width: 20%;
+    position: fixed;
+    left: 0;
+}
+
+.sidebar h1 {
+    margin-left: 5px;
+    font-family: "Oxanium";
+    font-weight: 900;
+    color: whitesmoke;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-left: 5px;
+}
+
+.sidebar ul li {
+    margin: 6% 0;
+    align-content: center;
+    width: 90%;
+    height: 50px;
+}
+.sidebar ul li a i {
+    font-size: 30px;
+    
+}
+.sidebar ul li a {
+    border-radius: 0.8em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.sidebar ul li a:hover {
+    background-color: #f8f8f8;
+    color: black ;
+    transition: 0.7s all;
+}
+.sidebar h2 {
+    display: none;
+}
+.sidebar button {
+    align-items: center;
+    display: flex ;
+    font-weight: 500;
+    text-align: start;
+    width: 90%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 0.8em;
+    color: white;
+    background: transparent;
+    border: none;
+}
+.sidebar button span {
+    margin-top: 5px;
+}
+.sidebar button i {
+    font-size: 30px;
+}
+.sidebar button:hover {
+    background-color: #f8f8f8;
+    color: black ;
+    transition: 0.7s all;
+}
+/* akhir sidebar */
+
+
+/* awal mainpost */
+.mainpost {
+    width: 50%;
+    margin-bottom: 60px;
+}
+.mainpost h3 {
+    margin-bottom: 5px;
+    color: white ;
+}
+.mainpost h1 {
+    font-size: 2rem;
+    color: white ;
+    font-family: "Oxanium";
+    text-align: center;
+    margin-top: 5px;
+}
+.mainpost section .gambar {
+    border: 1px solid rgba(156, 151, 151, .5);
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    align-content: center;
+    text-align: center;
+}
+.mainpost section img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+}
+.mainpost p {
+    margin-top: 10px;
+    color: white ;
+}
+.mainpost ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.mainpost ul li {
+    border-radius: 0.8rem;
+    display: flex;
+    justify-content: center;
+    width: 115px;
+    background-color: #635e5e;
+}
+
+.mainpost ul li a {
+    border-radius: 0.8rem;
+    text-decoration: none;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    color: rgb(193, 193, 193);
+    background-color: rgba(0,0,0, 0.5);
+}
+.mainpost li a:hover{
+    background-color: rgb(89, 87, 87);
+    color: white;
+}
+.mainpost hr {
+    width: 100%;
+    margin-top: 5px;
+}
+/* akhir mainpost */
+
+
+
+/* navbar */
+.navbar {
+    z-index: 100;
+    display: none;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    background-color: black ;
+}
+.navbar ul {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    border: 1px solid black ;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar ul li a {
+    border-radius: .2em;
+    margin-right: 10px;
+    font-size: 40px;
+    color: white ;
+}
+.navbar ul li a:hover {
+    background-color: white;
+    color: black;
+}
+.navbar button{
+    border: none;
+    font-size: 40px;
+    border-radius: .2em;
+    background: transparent;
+    color: white;
+
+}
+.navbar button:hover{
+    background-color: white;
+    color: black;
+}
+
+/* akhir navbar */
+
+
+
+
+/* responsive breakpoint */
+/* smartphone */
+@media screen and (max-width: 560px) {
+    .container {
+        justify-content: start;
+    }
+    
+    .navbar {
+        display: flex;
+    }
+    .sidebar {
+        display: none;
+    }
+    
+    .mainpost {
+        width: 100%;
+    }
+}
+
+/* iPad */
+@media screen and (max-width: 768px) {
+    /* sidebar */
+    .sidebar {
+        max-width: 40px ;
+    }
+    .sidebar .tooltip1 {
+        display: none;
+    }
+    .sidebar h1 {
+        display: none;
+    }
+    .sidebar h2 {
+        display: flex;
+        font-family: "Oxanium";
+        color: white;
+    }
+
+
+    
+    .sidebar ul li {
+        display: flex;
+        margin-top: 10px;
+    }
+    
+    /* akhir sidebar */
+    .mainpost {
+        width: 80%;
+        margin-left: 60px;
+    }
+}
