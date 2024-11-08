@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- awal icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- akhir icon -->
+    <!-- awal font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <!-- akhir font -->
+
+    {% block link_css %}
+
+    {% endblock link_css %}
+    <link rel="stylesheet" href="{% static '/css/mainstyle.css' %}">
+
+
+    <title>{{ title }}</title>
+</head>
+<body>
+    <!-- awal overlay login -->
+    {% block FORM %}
+    <div class="formoverlay">
+        <div class="form">
+            
+        </div>
+    </div>
+    {% endblock FORM %}
+    <!-- akhir overlay login -->
+
+
+    
+
+
+    <!-- awal container -->
+    <div class="container">
+        <!-- awal sidebar -->
+        <div class="sidebar">
+            <h1>Lets Talk</h1>
+            <h2>L T</h2>
+            <ul>
+                <li>
+                    <a href="{% url "home" %}">
+                        <i class="bx bx-home-heart"></i>
+                        <span class="tooltip1">Home</span>
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url "post:postlist" %}">
+                        <i class="bx bxs-user-detail"></i>
+                        <span class="tooltip1">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="bx bx-list-plus"></i>
+                        <span class="tooltip1">Create Post</span>
+                    </a>
+                </li>
+                <form action="{% url "USER:logout" %}" method="post">
+                    {% csrf_token %}
+                    <button>
+                        <i class="bx bx-log-out-circle"></i>
+                        <span class="tooltip1">Logout</span>
+                        
+                    </button>
+                </form>
+                {% else %}
+                <li>
+                    <a href="{% url "USER:register" %}">
+                        <i class="bx bx-user-plus"></i>
+                        <span class="tooltip1">Sign Up</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="{% url "login" %}">
+                        <i class="bx bx-log-in-circle"></i>
+                        <span class="tooltip1">login</span>
+                    </a>
+                </li>
+                
+                <!-- <button>
+                    <span class="tooltip1">Login</span>
+                </button>
+                -->
+                {% endif %}
+                    
+            </ul>
+        </div>
+        <!-- akhir sidebar -->
+
+
+        <!-- awal sidebar -->
+        <div class="mainpost">
+            <section>
+                <h1>Lets Talk</h1>
+                <h3>User</h3>
+                <div class="gambar">
+                    <img src="{% static 'img/gambar1.jpg' %}" alt="">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla iure velit labore dignissimos cum nesciunt animi, deserunt recusandae! Quas ab nobis atque, mollitia quos autem nulla ipsum repellendus sit nihil totam ipsa inventore recusandae voluptate odio corrupti dolores quisquam saepe dolorum nemo iure esse, cumque fugiat tenetur? Eum at corporis modi ab vitae incidunt blanditiis harum sequi repudiandae deserunt ipsam esse eveniet laborum ex, dolorem adipisci officiis quaerat quibusdam architecto asperiores molestias necessitatibus? Praesentium sunt nam asperiores modi! Praesentium quidem sunt sint facere, est corrupti molestias quam hic vitae! Asperiores illum amet nobis perferendis exercitationem ut nisi eum animi necessitatibus.</p>
+                <ul>
+                    <li><a href="#">Komentar</a></li>
+                </ul>
+                <hr>
+            </section>
+        </div> 
+        <!-- akhir sidebar -->
+
+
+    </div>
+    <!-- akhir container -->
+
+
+     <!-- awal navbar -->
+    <nav>
+        <div class="navbar">
+            <ul>
+                <li>
+                <!-- home -->
+                    <a href="/">
+                        <i class="bx bx-home-heart"></i>
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <!-- profile -->
+                <li>
+                    <a href="#">
+                        <i class="bx bxs-user-detail"></i>
+                    </a>
+                </li>
+                <!-- create post -->
+                <li>
+                    <a href="#">
+                        <i class="bx bx-list-plus"></i>
+                    </a>
+                </li>
+                <form action="{% url "USER:logout" %}" method="post">
+                    {% csrf_token %}
+                    <button>
+                        <i class="bx bx-log-out-circle"></i>
+                    </button>
+                </form>
+                {% else %}
+                
+                <!-- create acc -->
+                <li>
+                    <a href="{% url "USER:register" %}">
+                        <i class="bx bx-user-plus"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url "login" %}">
+                        <i class="bx bx-log-in-circle"></i>
+                    </a>
+                </li>
+                {% endif %}
+                
+            </ul>
+        </div>
+    </nav>
+    <!-- akhir navbar -->
+    {% block script %}
+    
+    {% endblock script %}
+    
+    
+</body>
+</html>

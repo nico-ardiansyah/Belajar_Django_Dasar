@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "main.html" %}
+{% load widget_tweaks %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block link_css %}
+    <link rel="stylesheet" href="{% static "/css/style.css" %}">
+    {% endblock link_css %}
+    <title>Document</title>
+</head>
+<body>
+
+{% block Loginform %}
+<form class="LOGINFORM" action="" method="post">
+    {% csrf_token %}
+    <label for="username">Username</label>
+    {% render_field userlogin.username id="USERNAME" class="USERNAME" placeholder="Input Username" %}
+    <label for="PASSWORD">Password</label>
+    {% render_field userlogin.password id="PASsWORD" class="PASSWORD"  placeholder="Input Password"%}
+    <button>Login</button>
+</form>
+
+{% endblock Loginform %}
+
+</body>
+</html>

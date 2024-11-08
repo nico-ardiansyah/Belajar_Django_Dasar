@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% load widget_tweaks %}
+{% load static %}
+
+
+{% block link_css %}
+<link rel="stylesheet" href="{% static "/css/style.css" %}">
+{% endblock link_css %}
+
+
+{% block FORM %}
+<div class="formoverlay">
+    <div class="form">
+    <button class="close">
+        <i class='bx bxs-x-circle'></i>
+    </button>
+        <form class="LOGINFORM" action="" method="post">
+            {% csrf_token %}
+            {% if userlogin.errors %}
+            <p class="error">!! Please Enter a Correct Username And Password</p>
+            {% endif %}
+            <label for="username">Username</label>
+            {% render_field userlogin.username id="USERNAME" class="USERNAME" placeholder="Input Username" %}
+            <label for="PASSWORD">Password</label>
+            {% render_field userlogin.password id="PASsWORD" class="PASSWORD"  placeholder="Input Password"%}
+            <button>Login</button>
+        </form>
+    </div>
+</div>
+{% endblock FORM %}
+{% block script %}
+<script>    
+    const closeButton = document.querySelector('.close');
+    const close = document.querySelector('.formoverlay');
+    
+    closeButton.addEventListener('click', function(){
+        close.classList.add('active');
+    });
+</script>
+{% endblock script %}
