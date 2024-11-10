@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block link_css %}
+<link rel="stylesheet" href="{% static "user/css/style.css" %}">
+{% endblock link_css %}
+
+
+{% block content %}
+<section>
+    {% for user_post in post %}
+    <h3>{{ user_post.author}}</h3>
+    <div class="gambar">
+        <img src="{{user_post.banner.url}}" alt="">
+    </div>
+    <p>{{ user_post.content }}</p>
+    
+    {% endfor %}
+</section>
+{% endblock content %}

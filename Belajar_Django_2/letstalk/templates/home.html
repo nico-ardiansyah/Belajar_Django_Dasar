@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block link_css %}
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+{% endblock link_css %}
+
+{% block content %}
+<section>
+    {% for post in allpost %}
+    <h3>{{ post.author}}</h3>
+    <div class="gambar">
+        <img src="{{post.banner.url}}" alt="">
+    </div>
+    <p>{{ post.content }}</p>
+    <ul>
+        <li><a href="#">Komentar</a></li>
+    </ul>
+    <hr>
+    {% endfor %}
+</section>
+{% endblock content %}

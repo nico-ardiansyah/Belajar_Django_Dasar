@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block link_css %}
+    <link rel="stylesheet" href="{% static "/user/css/registerstyle.css" %}">
+{% endblock link_css %}
+
+{% block content %}
+<div class="form">
+    <form class="registerform" action="" method="post">
+        <span>Register</span>
+        {% csrf_token %}
+        <label for="username">USERNAME</label>
+        {% render_field createUser.username id="username" class="username" placeholder="Your Username" %}
+        {% if createUser.username.errors %}
+            {{createUser.username.errors }}
+        {% endif %}
+        <label for="password1">PASSWORD</label>
+        {% render_field createUser.password1 id="pasword1" class="password1" placeholder="Your Password" %}
+        {% if createUser.password1.errors %}
+            {{ createUser.password1.errors}}
+        {% endif %}
+        <label for="password2">COMFIRM PASSWORD</label>
+        {% render_field createUser.password2 id="pasword2" class="password2" placeholder="Conrfirm Password" %}
+        {% if createUser.password2.errors %}
+            {{ createUser.password2.errors}}
+        {% endif %}
+        <button>Sign Up</button>
+    </form>
+</div>
+{% endblock content %}
