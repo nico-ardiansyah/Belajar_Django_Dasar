@@ -1,0 +1,47 @@
+{% extends "main.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block link_css %}
+<link rel="stylesheet" href="{% static "user/css/style.css" %}">
+{% endblock link_css %}
+
+
+{% block content %}
+<section>
+    <form action="{% url "USER:profile" %}" class="postingan" method="post" enctype="multipart/form-data">  
+        {% csrf_token %}
+        {% for user_post in post %}
+        {% if UpdateForm.instance.id == user_post.id %}
+        <section class="section">
+            <div class="edit-form">
+                <span>Edit Post</span>
+                {% csrf_token %}
+                <label for="content" class="label">Content</label>
+                {% render_field UpdateForm.content id="content" %}
+                <label for="banner" class="label">Chose Image</label>
+                {% render_field UpdateForm.banner id="banner"%}
+                <button class="btn-post" name="save" value="{{ user_post.id }}">Save</button>
+            </div>
+        </section>
+        {% else %}
+        <section class="post" value="{{ user_post.id }}">
+        <h3>{{ user_post.author}}</h3>
+        <div class="gambar">
+            <img src="{{user_post.banner.url}}" alt="">
+        </div>
+        <p>{{ user_post.content }}</p>
+            <button name="edit" class="btn btn-edit" value="{{ user_post.id }}" formnovalidate >
+                <i class='bx bx-message-edit'></i>
+                <span class="tooltiptext">Edit</span>
+            </button>
+            <button name="delete" class="btn btn-delete" value="{{ user_post.id }}" formnovalidate >
+                <i class='bx bx-trash'></i>
+                <span class="tooltiptext">Delete</span>
+            </button>
+        </section>
+        {% endif %}
+        {% endfor %}
+    </form>
+</section>
+{% endblock content %}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "img/favicon-32x32.png" %}">
+    <!-- favicon -->
+    <!-- awal icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- akhir icon -->
+    <!-- awal font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <!-- akhir font -->
+
+    {% block link_css %}
+
+    {% endblock link_css %}
+    <link rel="stylesheet" href="{% static '/css/mainstyle.css' %}">
+
+
+    <title>{{ title }}</title>
+</head>
+<body>
+    <!-- awal container -->
+    <div class="container">
+        <!-- awal sidebar -->
+        <div class="sidebar">
+            <h1>Lets Talk</h1>
+            <h2>L T</h2>
+            <ul>
+                <li>
+                    <a href="{% url "home" %}">
+                        <i class="bx bx-home-heart"></i>
+                        <span class="tooltip1">Home</span>
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url "USER:profile" %}">
+                        <i class="bx bxs-user-detail"></i>
+                        <span class="tooltip1">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url "post:createpost" %}">
+                        <i class="bx bx-list-plus"></i>
+                        <span class="tooltip1">Create Post</span>
+                    </a>
+                </li>
+                <form action="{% url "USER:logout" %}" method="post">
+                    {% csrf_token %}
+                    <button>
+                        <i class="bx bx-log-out-circle"></i>
+                        <span class="tooltip1">Logout</span>
+                        
+                    </button>
+                </form>
+                {% else %}
+                <li>
+                    <a href="{% url "USER:register" %}">
+                        <i class="bx bx-user-plus"></i>
+                        <span class="tooltip1">Sign Up</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="{% url "USER:login" %}">
+                        <i class="bx bx-log-in-circle"></i>
+                        <span class="tooltip1">login</span>
+                    </a>
+                </li>
+                
+                
+                {% endif %}
+                    
+            </ul>
+        </div>
+        <!-- akhir sidebar -->
+
+
+        <!-- awal sidebar -->
+        <div class="mainpost">
+            <h1>Lets Talk</h1>
+            {% block content %}
+            
+            {% endblock content %}
+        </div> 
+        <!-- akhir sidebar -->
+
+
+    </div>
+    <!-- akhir container -->
+
+
+     <!-- awal navbar -->
+    <nav>
+        <div class="navbar">
+            <ul>
+                <li>
+                <!-- home -->
+                    <a href="{% url "home" %}">
+                        <i class="bx bx-home-heart"></i>
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <!-- profile -->
+                <li>
+                    <a href="{% url "USER:profile" %}">
+                        <i class="bx bxs-user-detail"></i>
+                    </a>
+                </li>
+                <!-- create post -->
+                <li>
+                    <a href="{% url "post:createpost" %}">
+                        <i class="bx bx-list-plus"></i>
+                    </a>
+                </li>
+                <form action="{% url "USER:logout" %}" method="post">
+                    {% csrf_token %}
+                    <button>
+                        <i class="bx bx-log-out-circle"></i>
+                    </button>
+                </form>
+                {% else %}
+                
+                <!-- create acc -->
+                <li>
+                    <a href="{% url "USER:register" %}">
+                        <i class="bx bx-user-plus"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url "USER:login" %}">
+                        <i class="bx bx-log-in-circle"></i>
+                    </a>
+                </li>
+                {% endif %}
+                
+            </ul>
+        </div>
+    </nav>
+    <!-- akhir navbar -->
+    
+</body>
+</html>

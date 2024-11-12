@@ -1,0 +1,160 @@
+.postingan .btn {
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    color: white;
+    position: absolute;
+    font-size: 20px;
+}
+
+.postingan .btn-delete {
+    top: 30px;
+    right: -20px;
+}
+.postingan .btn-edit {
+    top: 60px;
+    right: -20px;
+}
+
+.postingan span {
+    position: absolute;
+    font-family: "Oxanium";
+    display: none;
+}
+
+.postingan .btn-delete .tooltiptext{
+    right: -60px;
+}
+.postingan .btn-edit .tooltiptext {
+    right: -40px;
+}
+
+.postingan .btn:hover span {
+    display: flex;
+} 
+
+.postingan {
+    position: relative;
+}
+.post {
+    margin-top: 20px;
+    position: relative;
+}
+
+/* form */
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.section .edit-form {
+    border-radius: 1rem;
+    background-color: rgba(24, 23, 23, .7);
+    box-shadow: 0 0 15px rgb(63, 225, 79);
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+}
+
+
+.label {
+    color: white;
+    font-weight: 600;
+    font-family: "Oxanium";
+}
+
+
+.form-content {
+    width: 80%;
+    height: 40%;
+    border-radius:.5em;
+    border: none;
+    border: 2px solid rgba(63, 225, 79, 0.8);
+    padding-left: 10px;
+}
+
+.form-banner {
+    font-family: "Oxanium";
+    color: white;
+}
+
+
+.btn-post {
+    box-shadow: 0 0 10px rgb(63, 225, 79);
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: "Oxanium";
+    width: 30%;
+    margin-top: 5px;
+    height: 30px;
+    background: rgba(63, 225, 79, .8);
+    border: none;
+    border-radius: .5em;
+}
+
+.post h3 {
+    color: white;
+    font-family: "Oxanium";
+}
+.post .gambar {
+    border: 1px solid rgba(156, 151, 151, .5);
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    align-content: center;
+    text-align: center;
+}
+.post img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+}
+.post p {
+    margin-top: 33px;
+    color: white ;
+}
+
+@media screen and (max-width: 760px) {
+    .postingan span {
+        font-size: 15px;
+    }
+    .postingan .btn-delete .tooltiptext{
+        margin-top: 5px;
+        right: -50px;
+    }
+    .postingan .btn-edit .tooltiptext {
+        right: -30px;
+    }
+    
+}
+
+
+@media screen and (max-width: 560px) {
+    .postingan .btn-delete {
+        top: 530px;
+        right: 420px;
+    }
+    .postingan .btn-edit {
+        top: 532px;
+        right: 380px;
+    }
+    .postingan .btn:hover span {
+        display: none;
+    }
+    .section {
+        height: 90vh;
+    }
+    .form-content {
+        height: 30%;
+    }
+}
+
+/* akhir form */

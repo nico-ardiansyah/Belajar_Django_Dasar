@@ -1,0 +1,89 @@
+* {
+    overflow: hidden;
+}
+
+.error {
+    width: 60%;
+}
+.errorlist ul {
+    width: 100%;
+}
+.errorlist li{
+    align-self: center;
+    width: 100%;
+    font-family: "Oxanium";
+    color: white;
+}
+
+.form {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+}
+
+.form .registerform{
+    border-radius: 1rem;
+    width: 70%;
+    height: 70%;
+    box-shadow: 0 0 10px rgb(63, 225, 79);
+    background-color: rgba(24, 23, 23, .7);
+    position: relative;
+    gap: 5px;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.registerform span {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700;
+    font-family: "Oxanium";
+}
+
+/* akhir overlay login */
+
+
+
+/* Awal overlay login */
+.registerform label {
+    margin-top: 10px;
+    color: white;
+    font-family: "Oxanium";
+}
+.username, .password1, .password2 {
+
+    border-radius: .5em;
+    width: 60%;
+    border: none;
+    height: 40px;
+    border: 2px solid rgba(63, 225, 79, .8);
+}
+
+.registerform  button {
+    box-shadow: 0 0 10px rgb(63, 225, 79);
+    font-weight: 800;
+    font-size: 1.2rem;
+    font-family: "Oxanium";
+    align-self: center;
+    width: 50%;
+    margin-top: 5px;
+    height: 30px;
+    background: rgba(63, 225, 79, .8);
+    border: none;
+    border-radius: .5em;
+}
+
+@media screen and (max-width: 560px) {
+    .form .registerform {
+        width: 90%;
+        height: 65%;
+        padding: 10px 0;
+    }
+    .username, .password1, .password2 {
+        height: 35px;
+    }
+    
+}
