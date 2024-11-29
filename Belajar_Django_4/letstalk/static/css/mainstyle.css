@@ -1,0 +1,490 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: sans-serif, arial, helvetica;
+}
+body {
+    background-color: white;
+}
+
+
+
+/* awal continer */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+/* akhir continer */
+
+
+
+/* awal sidebar */
+.sidebar {
+    background-color: black;
+    z-index: 100;
+    border-right: 1px solid rgba(134, 131, 131,.5);
+    padding: 2% 0;
+    height: 100%;
+    top: 0;
+    width: 20%;
+    position: fixed;
+    left: 0;
+}
+
+.sidebar h1 {
+    margin-left: 5px;
+    font-family: "Oxanium";
+    font-weight: 900;
+    color: whitesmoke;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-left: 5px;
+}
+
+.sidebar ul li {
+    margin: 6% 0;
+    align-content: center;
+    width: 90%;
+    height: 50px;
+}
+.sidebar ul li a i {
+    font-size: 30px;
+    
+}
+.sidebar ul li a {
+    border-radius: 0.8em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.sidebar ul li a:hover {
+    background-color: #f8f8f8;
+    color: black ;
+    transition: 0.7s all;
+}
+.sidebar h2 {
+    display: none;
+}
+.sidebar button {
+    align-items: center;
+    display: flex ;
+    font-weight: 500;
+    text-align: start;
+    width: 90%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 0.8em;
+    color: white;
+    background: transparent;
+    border: none;
+}
+.sidebar button span {
+    margin-top: 5px;
+}
+.sidebar button i {
+    font-size: 30px;
+}
+.sidebar button:hover {
+    background-color: #f8f8f8;
+    color: black ;
+    transition: 0.7s all;
+}
+/* akhir sidebar */
+
+
+/* awal mainpost */
+.mainpost {
+    height: max-content;
+    background-color: black ;
+    top: 0;
+    bottom: 0;
+    padding-bottom: 100%;
+    width: 60%;
+}
+
+.mainpost h1 {
+    font-size: 2rem;
+    color: white ;
+    font-family: "Oxanium";
+    text-align: center;
+    margin-top: 5px;
+    margin-left: -20px;
+}
+
+/* awal warning */
+.warning {
+    z-index: 100;
+    border-left: 1px solid rgba(134, 131, 131,.5);
+    align-content: center;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+    position: fixed;
+    width: 20%;
+    right: 0;
+}
+.warning p {
+    overflow: hidden ;
+    font-size: 1.7rem;
+    text-align: center;
+    font-weight: 600;
+    font-family: "Oxanium";
+}
+.p12,.p13,.p14,.p15,.p16 {
+    color: red;
+}
+.p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,.p10,.p11 {
+    color: white;
+}
+
+
+
+/* akhir mainpost */
+
+/* mainpost animation */
+.p1 {
+    transform: translateY(3000%);
+    animation: muncul 40s 1.5s infinite;
+}
+.p2 {
+    transform: translateY(3000%);
+    animation: muncul 40s 2s infinite;
+}
+.p3 {
+    transform: translateY(3000%);
+    animation: muncul 40s 2.5s infinite ;
+}
+.p4 {
+    transform: translateY(3000%);
+    animation: muncul 40s 3s infinite;
+}
+.p5 {
+    transform: translateY(3000%);
+    animation: muncul 40s 3.5s infinite;
+}
+.p6 {
+    transform: translateY(3000%);
+    animation: muncul 40s 4s infinite;
+}
+.p7 {
+    transform: translateY(3000%);
+    animation: muncul 40s 4.5s infinite;
+}
+.p8 {
+    transform: translateY(3000%);
+    animation: muncul 40s 5s infinite;
+}
+.p9 {
+    transform: translateY(3000%);
+    animation: muncul 40s 5.5s infinite;
+}
+.p10 {
+    transform: translateY(3000%);
+    animation: muncul 40s 6s infinite;
+}
+.p11 {
+    transform: translateY(3000%);
+    animation: muncul 40s 6.5s infinite;
+}
+.p12 {
+    transform: translateY(3000%);
+    animation: muncul 40s 7s infinite;
+}
+.p13 {
+    transform: translateY(3000%);
+    animation: muncul 40s 7.5s infinite;
+}
+.p14 {
+    transform: translateY(3000%);
+    animation: muncul 40s 8s infinite;
+}
+.p15 {
+    transform: translateY(3000%);
+    animation: muncul 40s 8.5s infinite;
+}
+.p16 {
+    transform: translateY(3000%);
+    animation: muncul 40s 9s infinite;
+}
+
+
+@keyframes muncul {
+    25% {
+        transform: translateY(0);
+    }
+    25.1%,
+    70% {
+        transform: translateX(0);
+    } 
+    100% {
+        transform: translateX(100%);
+    }
+    
+}
+
+/* akhir mainpost animation */
+
+
+/* akhir warning */
+
+
+/* navbar */
+.navbar {
+    z-index: 100;
+    display: none;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    background-color: black ;
+}
+.navbar ul {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    border: 1px solid black ;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar ul li a {
+    border-radius: .2em;
+    margin-right: 10px;
+    font-size: 40px;
+    color: white ;
+}
+.navbar ul li a:hover {
+    background-color: white;
+    color: black;
+}
+.navbar button{
+    border: none;
+    font-size: 40px;
+    border-radius: .2em;
+    background: transparent;
+    color: white;
+
+}
+.navbar button:hover{
+    background-color: white;
+    color: black;
+}
+
+/* akhir navbar */
+
+/* awal login */
+/* overlay login */
+.overlay {
+    overflow: hidden;
+    background: none;
+    position: fixed;
+    top: 0;
+    transition: 2s linear;
+    bottom: 0;
+    left: -1000px;
+    width: 60%;
+}
+.login.active {
+    transition: 2s 1s linear;
+    left: 269px;
+}
+.register.active {
+    transition: 2s 1s linear;
+    left: 269px;
+}
+
+.btn-close {
+    z-index: 100;
+    position: absolute;
+    font-size: 1.5rem;
+    top: 120px;
+    right: 150px;
+    background: none;
+    color: rgb(63, 225, 79);
+}
+
+
+/* overlay login */
+
+
+.form {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+
+}
+.form span {
+    font-size: 30px;
+    font-weight: 700;
+    color: white ;
+    font-family: "Oxanium";
+}
+
+.loginform,.registerform {
+    position: relative;
+    background-color: rgba(24, 23, 23, .7);
+    gap: 5px;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 60%;
+    box-shadow: 0 0 15px rgb(63, 225, 79);
+}
+
+.form label {
+    margin-top: 5px;
+    color: white;
+    font-family: "Oxanium";
+}
+
+
+.fields {
+    border-radius: .5em;
+    border: none;
+    height: 40px;
+    border: 2px solid rgba(63, 225, 79, .8);
+}
+
+.form  .kirim {
+    margin-bottom: 5px;
+    box-shadow: 0 0 10px rgb(63, 225, 79);
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: "Oxanium";
+    align-self: center;
+    width: 30%;
+    margin-top: 5px;
+    height: 30px;
+    background: rgba(63, 225, 79, .8);
+    border: none;
+    border-radius: .5em;
+}
+
+
+
+
+/* akhir login */
+
+
+
+
+/* responsive breakpoint */
+/* windows */
+
+/* iPad */
+@media screen and (max-width: 770px) {
+    
+    /* sidebar */
+    .sidebar {
+        max-width: 40px ;
+    }
+    .sidebar .tooltip1 {
+        display: none;
+    }
+    .sidebar h1 {
+        display: none;
+    }
+    .sidebar h2 {
+        display: flex;
+        font-family: "Oxanium";
+        color: white;
+    }
+
+
+    
+    .sidebar ul li {
+        display: flex;
+        margin-top: 10px;
+    }
+    
+    /* akhir sidebar */
+    .mainpost {
+        width: 89%;
+    }
+    .warning {
+        padding: 20px 0 ;
+        width: 15%;
+    }
+    .warning p {
+        font-size: 1.5rem;
+    }
+
+    .login.active {
+        left: 48px;
+    }
+    .register.active{
+        left: 48px;
+    }
+    .overlay {
+        width: 78%;
+    }
+    .btn-close {
+        font-size: 2rem;
+        right: 20px;
+        top: 200px;
+    }
+    .loginform,.registerform {
+        width: 90%;
+    }
+}
+
+
+
+
+
+
+/* smartphone */
+@media screen and (max-width: 560px) {
+    .navbar {
+        display: flex;
+    }
+    .sidebar {
+        display: none;
+    }
+    .mainpost {
+        width: 100%;
+        left: 0;
+    }
+    .warning {
+        display: none;
+    }
+    .warning p {
+        font-size: 1.2rem;
+    }
+    .btn-close {
+        top: 120px;
+        right: 5px;
+    }
+    .loginform,.registerform {
+        width: 95%;
+    }
+    .overlay {
+        width: 97%;
+    }
+    .login.active {
+        left: 5px;
+    }
+    .register.active{
+        left: 5px;
+    }
+}
+
+/* windows */

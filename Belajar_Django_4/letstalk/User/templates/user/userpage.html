@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block link_css %}
+<link rel="stylesheet" href="{% static "user/css/style.css" %}">
+{% endblock link_css %}
+
+
+{% block content %}
+<section class="content">
+    <form action="{% url "USER:profile" %}" class="postingan" method="post" enctype="multipart/form-data">  
+        {% csrf_token %}
+        {% for user_post in post %}
+            {% if UpdateForm.instance.id == user_post.id %}
+            <section class="section">
+                <div class="edit-form">
+                    <span>Edit Post</span>
+                    {% csrf_token %}
+                    <label for="content" class="label">Content</label>
+                    {% render_field UpdateForm.content id="content" %}
+                    <label for="banner" class="label">Chose Image</label>
+                    {% render_field UpdateForm.banner id="banner"%}
+                    <button class="btn-post" name="save" value="{{ user_post.id }}">Save</button>
+                </div>
+            </section>
+            {% else %}
+            <section class="post" value="{{ user_post.id }}">
+                <h3>{{ user_post.author}}</h3>
+                <div class="gambar">
+                    {% if user_post.banner.name|slice:"-3:" == 'mp4'  %}
+                    <video controls="controls">
+                        <source src="{{ user_post.banner.url }}" type='video/mp4' >
+                    </video>
+                    {% endif %}
+                    {% if user_post.banner.name|slice:"-4:" == 'jpg' or 'png' or 'jfif' %}
+                        <img src="{{user_post.banner.url }}" alt="" >
+                    {% endif %}
+                </div>
+                <p>{{ user_post.date }}</p>
+                <div class="menu">
+                    <a href="{% url "post" user_post.id %}" >
+                        <i class='bx bx-comment'></i>
+                    </a>
+                    <button name="edit" class="btn btn-edit" value="{{ user_post.id }}" formnovalidate >
+                        <i class='bx bx-message-edit'></i>
+                    </button>
+                    <button name="delete" class="btn btn-delete" value="{{ user_post.id }}" formnovalidate >
+                        <i class='bx bx-trash'></i>
+                    </button>
+                </div>
+                
+                <p>{{ user_post.content }}</p>
+                    
+            </section>
+            {% endif %}
+        {% endfor %}
+    </form>
+</section>
+{% endblock content %}

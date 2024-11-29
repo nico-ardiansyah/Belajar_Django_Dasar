@@ -1,0 +1,80 @@
+{% extends "main.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block link_css %}
+<link rel="stylesheet" href="{% static "css/poststyle.css" %}">
+{% endblock link_css %}
+
+{% block content %}
+<section class="content">
+    <section class="post">
+        
+        <!-- post display -->
+        {% for post in postingan %}
+            <h3>{{ post.author }}</h3>
+            <div class="gambar">
+                {% if post.banner.name|slice:"-3:" == 'mp4'  %}
+                <video controls="controls">
+                    <source src="{{ post.banner.url }}" type='video/mp4' >
+                </video>
+                {% endif %}
+                {% if post.banner.name|slice:"-4:" == 'jpg' or 'png' or 'jfif' %}
+                    <img src="{{post.banner.url }}" alt="" >
+                {% endif %}
+            </div>
+            <p>{{ post.date }}</p>
+                {% if user.is_authenticated %}
+                <form action="" method="post" >
+                    {% csrf_token %}
+                    <button type="submit" name="dislike" class="unlike" value="{{ post.id }}" >
+                        <i class='bx bx-heart'></i> <!-- unlike -->
+                        Dislike
+                    </button>
+                    <button type="submit" name="like" class="like" value="{{ post.id }}" >
+                        <i class='bx bxs-heart'></i> <!-- like -->
+                        Like
+                    </button>
+                </form>
+                {% endif %}
+                <p>like: {{ post.like.count }}</p> 
+                <p>Comments: {{ post.comments.count }}</p>
+                
+                <p>{{ post.content }}</p>
+                
+                <!-- post display -->
+            <hr>
+            {% endfor %}
+            <div class="comment-section">
+                <p>Comment list</p>
+                <form action="" method="post">
+                    {% csrf_token %}
+                {% for comment in commentlist %}
+                    <p>{{ comment.pengguna }}</p>
+                    <p>{{ comment.comment_text}}</p>
+                    {% if request.user == comment.pengguna %}
+                    <button class="btn-dlt" name="delete" value="{{ comment.id }}">
+                        Delete
+                    </button>
+                    {% endif %}
+                    <hr>
+                {% endfor %}
+                </form>
+            </div>
+            {% if user.is_authenticated %}
+            <form action="" class="comment" method="post">
+                {% for commentForm in commentform %}
+                {% csrf_token %}
+                <label >comment</label>
+                {{ commentForm }}
+                <button type="submit" class="btn">
+                    <i class='bx bxs-send'></i>
+                </button>
+                {% endfor %}
+            </form>
+            {% endif %}
+        
+    </section>
+</section>
+
+{% endblock content %}

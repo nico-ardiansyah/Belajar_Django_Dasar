@@ -1,0 +1,41 @@
+{% extends "main.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block link_css %}
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+{% endblock link_css %}
+
+{% block content %}
+<section class="content">
+    <section class="post">
+        
+        <!-- post display -->
+            {% for post in allpost %}
+            
+                <h3>{{ post.author }}</h3>
+                <div class="gambar">
+                    {% if post.banner.name|slice:"-3:" == 'mp4'  %}
+                    <video controls="controls">
+                        <source src="{{ post.banner.url }}" type='video/mp4' >
+                    </video>
+                    {% endif %}
+                    {% if post.banner.name|slice:"-4:" == 'jpg' or 'png' or 'jfif' %}
+                        <img src="{{post.banner.url }}" alt="" >
+                    {% endif %}
+                </div>
+                <p>{{ post.date }}</p>
+                <a href="{% url "post" post.id %}" class="detail">
+                    <i class='bx bxs-chevrons-right'></i> <span>post details</span>
+                </a>
+                
+                    <p>{{ post.content }}</p>
+                    
+                    <!-- post display -->
+                <hr>
+            {% endfor %}
+        </form>
+    </section>
+</section>
+{% endblock content %}
+

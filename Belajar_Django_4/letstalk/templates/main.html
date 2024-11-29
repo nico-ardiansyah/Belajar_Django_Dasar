@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "img/favicon-32x32.png" %}">
+    <!-- favicon -->
+    <!-- awal icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- akhir icon -->
+    <!-- awal font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <!-- akhir font -->
+    
+    <!-- ajax -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- ajax -->
+
+
+    {% block link_css %}
+
+    {% endblock link_css %}
+    <link rel="stylesheet" href="{% static '/css/mainstyle.css' %}">
+
+
+    <title>{{ title }}</title>
+</head>
+<body>
+    <!-- awal container -->
+    <div class="container">
+        <!-- awal sidebar -->
+        <div class="sidebar">
+            <h1>Lets Talk</h1>
+            <h2>L T</h2>
+            <ul>
+                <li>
+                    <a href="{% url "home" %}">
+                        <i class="bx bx-home-heart"></i>
+                        <span class="tooltip1">Home</span>
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url "USER:profile" %}">
+                        <i class="bx bxs-user-detail"></i>
+                        <span class="tooltip1">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url "post:createpost" %}">
+                        <i class="bx bx-list-plus"></i>
+                        <span class="tooltip1">Create Post</span>
+                    </a>
+                </li>
+                <form action="{% url "logout" %}" method="post">
+                    {% csrf_token %}
+                    <button>
+                        <i class="bx bx-log-out-circle"></i>
+                        <span class="tooltip1">Logout</span>
+                        
+                    </button>
+                </form>
+                {% else %}
+                <button class='btn-signup'>
+                    <i class="bx bx-user-plus"></i>
+                    <span class="tooltip1">Sign Up</span>
+                </button>
+
+                <button class='btn-login'>
+                    <i class="bx bx-log-in-circle"></i>
+                    <span class="tooltip1">Login</span>
+                </button>
+                {% endif %}
+                    
+            </ul>
+        </div>
+        <!-- akhir sidebar -->
+
+
+        <!-- awal mainpost -->
+        <div class="mainpost">
+            <h1>Lets Talk</h1>
+            {% block content %}
+            {% endblock content %}
+            <!-- awal login -->
+            <div class="login overlay">
+                <div class="form">
+                    <button class="btn-close">
+                        <i class='bx bx-x-circle'></i>
+                    </button>
+                    <form class="loginform"  >
+                        <span>Login</span>
+                        {% csrf_token %}
+                        <label for="username">Username</label>
+                        <input type="text" id="username" class="fields" placeholder="Your Username" name="username"> 
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="fields" placeholder="Your Password" name="password">
+                        <button class="kirim" type="submit">Login</button>
+                    </form>
+                    
+                </div>
+            </div>
+            <!-- akhir login -->
+            
+            <!-- awal register -->
+            <div class="register overlay">
+                <div class="form">
+                    <button class="btn-close">
+                        <i class='bx bx-x-circle'></i>
+                    </button>
+                    <form class="registerform"  >
+                        <span>Register</span>
+                        {% csrf_token %}
+                        <label for="username">Username</label>
+                        <input type="text" id="username1" class="fields" placeholder="Your Username" name="username1"> 
+                        <label for="password1">Password</label>
+                        <input type="password" id="password1" class="fields" placeholder="Your Username" name="password1"> 
+                        <button class="kirim" type="submit">Sign Up</button>
+                    </form>
+                    
+                </div>
+            </div>
+            <!-- register register -->
+
+
+        </div> 
+        <!-- akhir mainpost -->
+        
+        <div class="warning">
+            <p class="p1">This</p>
+            <p class="p2">is</p>
+            <p class="p3">a</p>
+            <p class="p4">dummy</p>
+            <p class="p5">website</p>
+            <p class="p6">All</p>
+            <p class="p7">data</p>
+            <p class="p8">will</p>
+            <p class="p9">not</p>
+            <p class="p10">be</p>
+            <p class="p11">safe</p>
+            <p class="p12">Don't</p>
+            <p class="p13">share</p>
+            <p class="p14">any</p>
+            <p class="p15">private</p>
+            <p class="p16">info.</p>
+        </div>
+
+    </div>
+    <!-- akhir container -->
+
+
+     <!-- awal navbar -->
+    <nav>
+        <div class="navbar">
+            <ul>
+                <li>
+                <!-- home -->
+                    <a href="{% url "home" %}">
+                        <i class="bx bx-home-heart"></i>
+                    </a>
+                </li>
+                {% if user.is_authenticated %}
+                <!-- profile -->
+                <li>
+                    <a href="{% url "USER:profile" %}">
+                        <i class="bx bxs-user-detail"></i>
+                    </a>
+                </li>
+                <!-- create post -->
+                <li>
+                    <a href="{% url "post:createpost" %}">
+                        <i class="bx bx-list-plus"></i>
+                    </a>
+                </li>
+                <form action="{% url "logout" %}" method="post">
+                    {% csrf_token %}
+                    <button>
+                        <i class="bx bx-log-out-circle"></i>
+                    </button>
+                </form>
+                {% else %}
+                
+                <!-- create acc -->
+                <button class='btn-signup'>
+                    <i class="bx bx-user-plus"></i>
+                </button>
+
+                <button class='btn-login'>
+                    <i class="bx bx-log-in-circle"></i>
+                </button>
+                {% endif %}
+                
+            </ul>
+        </div>
+    </nav>
+    <!-- akhir navbar -->
+    
+    <!-- script -->
+
+    {% block scripts %}
+    
+    {% endblock scripts %}
+    <!-- script -->
+    
+    <!-- login -->
+    <script type="text/javascript">
+        let loginov = document.querySelector('.login');
+        let registerov = document.querySelector('.register');
+
+        $(document).on('submit', '.loginform', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url : "{% url "login" %}",
+                data : {
+                    username : $('#username').val(),
+                    password : $('#password').val(),
+                    csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val(),
+                },
+            success: function(data) {
+                $('.overlay').hide();
+                $(document).ajaxStop(function(){
+                    window.location.reload();
+                });
+            }
+        })
+            
+        });
+
+
+        $(document).on('submit', '.registerform', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url : "{% url "register" %}",
+                data : {
+                    username : $('#username1').val(),
+                    password : $('#password1').val(),
+                    csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val(),
+                },
+            success: function(data) {
+                $(document).ajaxStop(function(){
+                    registerov.classList.remove('active');
+                    loginov.classList.add('active');
+                });
+            }
+        })
+            
+        });
+
+
+    </script>
+    <!-- login -->
+    
+
+
+    <!-- overlay -->
+    <script>
+        let loginoverlay = document.querySelector('.login');
+        let registeroverlay = document.querySelector('.register');
+        
+        $(function(){
+            $('.btn-signup').click(function(){
+                registeroverlay.classList.add('active');
+                loginoverlay.classList.remove('active');
+                return false
+            });
+            $('.btn-login').click(function(){
+                registeroverlay.classList.remove('active');
+                loginoverlay.classList.add('active');
+                return false
+            });
+            $('.btn-close').click(function(){
+                registeroverlay.classList.remove('active');
+                loginoverlay.classList.remove('active');
+            });
+        });
+    </script>
+    <!-- overlay -->
+
+</body>
+</html>

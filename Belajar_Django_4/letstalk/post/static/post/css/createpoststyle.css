@@ -1,0 +1,96 @@
+* {
+    overflow: hidden;
+}
+
+.section {
+    display: flex;
+    height: 100vh;
+    padding: 50px ;
+}
+
+.createpost span {
+    font-size: 30px;
+    font-weight: 700;
+    color: white ;
+    font-family: "Oxanium";
+}
+
+
+.section .createpost {
+    border-radius: 1rem;
+    background-color: rgba(24, 23, 23, .7);
+    box-shadow: 0 0 15px rgb(63, 225, 79);
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    width: 98%;
+    height: 90%;
+}
+
+.label {
+    color: white;
+    font-weight: 600;
+    font-family: "Oxanium";
+}
+
+.form-title {
+    width: 80%;
+    border-radius:.5em;
+    border: none;
+    height: 30px;
+    border: 2px solid rgba(63, 225, 79, 0.8);
+    padding-left: 10px;
+}
+
+.form-content {
+    width: 80%;
+    height: 40%;
+    border-radius:.5em;
+    border: none;
+    border: 2px solid rgba(63, 225, 79, 0.8);
+    padding-left: 10px;
+}
+
+.form-banner {
+    font-family: "Oxanium";
+    color: white;
+}
+
+
+.btn-post {
+    box-shadow: 0 0 10px rgb(63, 225, 79);
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: "Oxanium";
+    width: 30%;
+    margin-top: 5px;
+    height: 30px;
+    background: rgba(63, 225, 79, .8);
+    border: none;
+    border-radius: .5em;
+}
+
+@media screen and (max-width: 770px) {
+    .section {
+        padding: 30px;
+    }
+    .section .createpost {
+        width: 88%;
+    }
+}
+@media screen and (max-width: 560px) {
+    .section {
+        padding: 10px;
+        margin-top: 25px;
+    }
+    .section .createpost {
+        width: 99%;
+        height: 80%;
+    }
+    .form-content {
+        height: 30%;
+    }
+}
